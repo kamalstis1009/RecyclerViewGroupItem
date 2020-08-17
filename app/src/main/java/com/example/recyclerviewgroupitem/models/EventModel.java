@@ -19,5 +19,4 @@ public class EventModel {
     public String getDate() {
         return date;
     }
-
 }

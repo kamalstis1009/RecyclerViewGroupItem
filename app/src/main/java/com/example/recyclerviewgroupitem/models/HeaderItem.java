@@ -20,5 +20,4 @@ public class HeaderItem extends ListItem {
     public int getType() {
         return TYPE_HEADER;
     }
-
 }

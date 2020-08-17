@@ -20,5 +20,4 @@ public class EventItem extends ListItem {
     public int getType() {
         return TYPE_EVENT;
     }
-
 }

@@ -44,6 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         } else {
             EventItem event = (EventItem) mItems.get(position);
             EventViewHolder holder = (EventViewHolder) viewHolder;
+
             // your logic here
             holder.txt_title.setText(event.getEventModel().getTitle());
         }
