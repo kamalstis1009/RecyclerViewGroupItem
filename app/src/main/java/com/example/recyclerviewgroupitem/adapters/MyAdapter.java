@@ -41,6 +41,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (type == ListItem.TYPE_HEADER) {
             HeaderItem header = (HeaderItem) mItems.get(position);
             HeaderViewHolder holder = (HeaderViewHolder) viewHolder;
+
+            // your logic here
             holder.txt_header.setText(header.getHeader());
         } else {
             EventItem event = (EventItem) mItems.get(position);
