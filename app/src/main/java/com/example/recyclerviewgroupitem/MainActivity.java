@@ -75,41 +75,41 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<MyModel> janArr = null, febArr = null, marArr = null, appArr = null, mayArr = null, junArr = null, julArr = null, augArr = null, sepArr = null, octArr = null, novArr = null, decArr = null;
         for (MyModel model : arrayList) {
             Date[] jan = getFirstAndLastDate(1), feb = getFirstAndLastDate(2), mar = getFirstAndLastDate(3), apr = getFirstAndLastDate(4), may = getFirstAndLastDate(5), jun = getFirstAndLastDate(6), jul = getFirstAndLastDate(7), aug = getFirstAndLastDate(8), sep = getFirstAndLastDate(9), oct = getFirstAndLastDate(10), nov = getFirstAndLastDate(11), dec = getFirstAndLastDate(12);
-            Date date = getDateFromCSharpStringDateTime(model.getDate());
-            if (jan != null && jan[0].before(date) && jan[1].after(date)) {
+            Date date = getDateFromStringDate(model.getDate());
+            if (jan != null && date != null && jan[0].before(date) && jan[1].after(date)) {
                 if (janArr == null) { janArr = new ArrayList<>(); }
                 janArr.add(model);
-            } else if (feb != null && date.after(feb[0]) && date.before(feb[1])) {
+            } else if (feb != null && date != null && date.after(feb[0]) && date.before(feb[1])) {
                 if (febArr == null) { febArr = new ArrayList<>(); }
                 febArr.add(model);
-            } else if (mar != null && date.after(mar[0]) && date.before(mar[1])) {
+            } else if (mar != null && date != null && date.after(mar[0]) && date.before(mar[1])) {
                 if (marArr == null) { marArr = new ArrayList<>(); }
                 marArr.add(model);
-            } else if (apr != null && date.after(apr[0]) && date.before(apr[1])) {
+            } else if (apr != null && date != null && date.after(apr[0]) && date.before(apr[1])) {
                 if (appArr == null) { appArr = new ArrayList<>(); }
                 appArr.add(model);
-            } else if (may != null && date.after(may[0]) && date.before(may[1])) {
+            } else if (may != null && date != null && date.after(may[0]) && date.before(may[1])) {
                 if (mayArr == null) { mayArr = new ArrayList<>(); }
                 mayArr.add(model);
-            } else if (jun != null && date.after(jun[0]) && date.before(jun[1])) {
+            } else if (jun != null && date != null && date.after(jun[0]) && date.before(jun[1])) {
                 if (junArr == null) { junArr = new ArrayList<>(); }
                 junArr.add(model);
-            } else if (jul != null && date.after(jul[0]) && date.before(jul[1])) {
+            } else if (jul != null && date != null && date.after(jul[0]) && date.before(jul[1])) {
                 if (julArr == null) { julArr = new ArrayList<>(); }
                 julArr.add(model);
-            } else if (aug != null && date.after(aug[0]) && date.before(aug[1])) {
+            } else if (aug != null && date != null && date.after(aug[0]) && date.before(aug[1])) {
                 if (augArr == null) { augArr = new ArrayList<>(); }
                 augArr.add(model);
-            } else if (sep != null && date.after(sep[0]) && date.before(sep[1])) {
+            } else if (sep != null && date != null && date.after(sep[0]) && date.before(sep[1])) {
                 if (sepArr == null) { sepArr = new ArrayList<>(); }
                 sepArr.add(model);
-            } else if (oct != null && date.after(oct[0]) && date.before(oct[1])) {
+            } else if (oct != null && date != null && date.after(oct[0]) && date.before(oct[1])) {
                 if (octArr == null) { octArr = new ArrayList<>(); }
                 octArr.add(model);
-            } else if (nov != null && date.after(nov[0]) && date.before(nov[1])) {
+            } else if (nov != null && date != null && date.after(nov[0]) && date.before(nov[1])) {
                 if (novArr == null) { novArr = new ArrayList<>(); }
                 novArr.add(model);
-            } else if (dec != null && date.after(dec[0]) && date.before(dec[1])) {
+            } else if (dec != null && date != null && date.after(dec[0]) && date.before(dec[1])) {
                 if (decArr == null) { decArr = new ArrayList<>(); }
                 decArr.add(model);
             }
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SimpleDateFormat")
-    public Date getDateFromCSharpStringDateTime(String input) {
+    private static Date getDateFromCSharpStringDateTime(String input) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(input);
         } catch (ParseException e) {
@@ -158,11 +158,11 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
-    public String getFormatFromStringDate(String pattern, Date date) {
+    private String getFormatFromStringDate(String pattern, Date date) {
         return new SimpleDateFormat(pattern).format(date); //java.text.DateFormat.getDateTimeInstance().format(ts.getTime())
     }
 
-    public Date getDateFromStringDate(String input) {
+    private Date getDateFromStringDate(String input) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(input);
         } catch (ParseException e) {
