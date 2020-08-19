@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem;
+package com.example.recyclerviewgroupitem.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewgroupitem.R;
 import com.example.recyclerviewgroupitem.models.EventItem;
 import com.example.recyclerviewgroupitem.models.HeaderItem;
 import com.example.recyclerviewgroupitem.models.ListItem;
@@ -46,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             EventViewHolder holder = (EventViewHolder) viewHolder;
 
             // your logic here
-            holder.txt_title.setText(event.getEventModel().getTitle());
+            holder.txt_title.setText(event.getMyModel().getTitle());
         }
     }
 

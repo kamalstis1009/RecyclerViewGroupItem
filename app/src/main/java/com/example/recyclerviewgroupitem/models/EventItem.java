@@ -2,18 +2,18 @@ package com.example.recyclerviewgroupitem.models;
 
 public class EventItem extends ListItem {
 
-    private EventModel eventModel;
+    private MyModel myModel;
 
-    public EventItem(EventModel eventModel) {
-        this.eventModel = eventModel;
+    public EventItem(MyModel myModel) {
+        this.myModel = myModel;
     }
 
-    public EventModel getEventModel() {
-        return eventModel;
+    public MyModel getMyModel() {
+        return myModel;
     }
 
-    public void setEventModel(EventModel eventModel) {
-        this.eventModel = eventModel;
+    public void setMyModel(MyModel myModel) {
+        this.myModel = myModel;
     }
 
     @Override
