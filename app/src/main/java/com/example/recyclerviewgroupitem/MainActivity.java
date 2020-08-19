@@ -43,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.lst_items);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.lst_items);
+        initRecyclerView(mRecyclerView, mItems);
+    }
+
+    private void initRecyclerView(RecyclerView recyclerView, ArrayList<ListItem> arrayList) {
+        MyAdapter mAdapter = new MyAdapter(arrayList);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(mItems));
+        recyclerView.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
     }
 
     @NonNull
