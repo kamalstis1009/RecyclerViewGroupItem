@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, ExpandableListViewActivity.class);
                 startActivity(intent);
                 finish();
             }
