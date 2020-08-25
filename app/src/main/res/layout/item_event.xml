@@ -4,11 +4,12 @@
     android:orientation="vertical"
     android:background="#FFFFFF"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="25dp">
 
     <TextView
         android:id="@+id/even_title"
         android:text="Hello Word"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
