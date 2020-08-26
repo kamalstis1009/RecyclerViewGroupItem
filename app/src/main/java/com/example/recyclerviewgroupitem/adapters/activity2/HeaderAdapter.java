@@ -3,10 +3,13 @@ package com.example.recyclerviewgroupitem.adapters.activity2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerviewgroupitem.R;
@@ -20,6 +23,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
 
     public interface RecyclerItemListener {
         void onItemShow(String header, RecyclerView recyclerView);
+        void onItemRemove(String header, RecyclerView recyclerView);
     }
 
     public HeaderAdapter(ArrayList<String> headers, RecyclerItemListener listener) {
@@ -34,15 +38,30 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
         return new MyViewHolder(view);
     }
 
+    private int drawerOption = 0;
+
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.textView.setText(mHeaders.get(position));
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
+                if (drawerOption == 0) {
+                    drawerOption = 1;
+                    onClickRotation(holder.imageButton);
+                    mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
+                } else if (drawerOption == 1) {
+                    drawerOption = 0;
+                    onClickRotation(holder.imageButton);
+                    mListener.onItemRemove(mHeaders.get(position), holder.recyclerView);
+                }
             }
         });
+    }
+
+    private void onClickRotation(ImageButton imageButton) {
+        float deg = (imageButton.getRotation() == 180F) ? 0F : 180F;
+        imageButton.animate().rotation(deg).setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
     @Override
@@ -53,10 +72,12 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
     class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout layout;
         TextView textView;
+        ImageButton imageButton;
         RecyclerView recyclerView;
         MyViewHolder(View itemView) {
             super(itemView);
             layout = (LinearLayout) itemView.findViewById(R.id.layout_id);
+            imageButton = (ImageButton) itemView.findViewById(R.id.header_icon);
             textView = (TextView) itemView.findViewById(R.id.header_title);
             recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_lst_items_child);
         }

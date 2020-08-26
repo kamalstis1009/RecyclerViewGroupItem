@@ -15,6 +15,9 @@ import java.util.ArrayList;
 
 public class ExpandableListViewActivity2 extends AppCompatActivity implements HeaderAdapter.RecyclerItemListener {
 
+    ArrayList<MyModel> mArrayList = new ArrayList<>();
+    private MyItemAdapter itemAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,17 +38,21 @@ public class ExpandableListViewActivity2 extends AppCompatActivity implements He
     @Override
     public void onItemShow(String header, RecyclerView recyclerView) {
         ArrayList<MyModel> list = loadEvents();
-        ArrayList<MyModel> arrayList = new ArrayList<>();
         for (MyModel model : list) {
             if (model.getTitle().equals(header)) {
-                arrayList.add(model);
+                mArrayList.add(model);
             }
         }
-        MyItemAdapter adapter = new MyItemAdapter(arrayList);
+        itemAdapter = new MyItemAdapter(mArrayList);
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(itemAdapter);
+        itemAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemRemove(String header, RecyclerView recyclerView) {
+        clear(mArrayList, itemAdapter);
     }
 
     public void clear(ArrayList<MyModel> arrayList, MyItemAdapter adapter) {
