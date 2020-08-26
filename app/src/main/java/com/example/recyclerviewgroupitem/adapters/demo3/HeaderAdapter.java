@@ -1,5 +1,6 @@
 package com.example.recyclerviewgroupitem.adapters.demo3;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHolder> {
 
+    private static final String TAG = "HeaderAdapter";
     private RecyclerItemListener mListener;
     private ArrayList<String> mHeaders;
 
@@ -41,18 +43,19 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        itemPosition.add(position);
         holder.textView.setText(mHeaders.get(position));
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemPosition.size() > 0 && itemPosition.get(position) == position){
+                if (itemPosition.size() > 0 && itemPosition.indexOf(position) == position){
                     onClickRotation(holder.imageButton);
-                    mListener.onItemRemove(mHeaders.get(position), holder.recyclerView);
                     itemPosition.remove(position);
+                    mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
                 } else {
                     onClickRotation(holder.imageButton);
-                    mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
-                    itemPosition.add(position);
+                    itemPosition.add(position, position);
+                    mListener.onItemRemove(mHeaders.get(position), holder.recyclerView);
                 }
             }
         });
