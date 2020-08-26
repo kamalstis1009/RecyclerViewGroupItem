@@ -43,11 +43,13 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        Log.d(TAG, "" + position);
         itemPosition.add(position);
         holder.textView.setText(mHeaders.get(position));
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "" + itemPosition.indexOf(position));
                 if (itemPosition.size() > 0 && itemPosition.indexOf(position) == position){
                     onClickRotation(holder.imageButton);
                     itemPosition.remove(position);
