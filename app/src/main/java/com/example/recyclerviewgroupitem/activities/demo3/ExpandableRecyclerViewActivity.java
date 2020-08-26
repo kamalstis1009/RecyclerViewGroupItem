@@ -14,7 +14,7 @@ import com.example.recyclerviewgroupitem.models.MyModel;
 
 import java.util.ArrayList;
 
-public class ExpandableListViewActivity2 extends AppCompatActivity implements HeaderAdapter.RecyclerItemListener {
+public class ExpandableRecyclerViewActivity extends AppCompatActivity implements HeaderAdapter.RecyclerItemListener {
 
     ArrayList<MyModel> mArrayList = new ArrayList<>();
     private MyItemAdapter itemAdapter;
@@ -22,7 +22,7 @@ public class ExpandableListViewActivity2 extends AppCompatActivity implements He
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_expandable_list_view2);
+        setContentView(R.layout.activity_expandable_recycler_view);
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_lst_items);
         initRecyclerView(loadHeaders(), mRecyclerView);
@@ -48,6 +48,7 @@ public class ExpandableListViewActivity2 extends AppCompatActivity implements He
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(itemAdapter);
+        //recyclerView.smoothScrollToPosition(mArrayList.size()-1);
         itemAdapter.notifyDataSetChanged();
     }
 

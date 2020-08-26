@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.recyclerviewgroupitem.activities.demo3.ExpandableListViewActivity2;
+import com.example.recyclerviewgroupitem.activities.demo3.ExpandableRecyclerViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, ExpandableListViewActivity2.class);
+                Intent intent = new Intent(MainActivity.this, ExpandableRecyclerViewActivity.class);
                 startActivity(intent);
                 finish();
             }
