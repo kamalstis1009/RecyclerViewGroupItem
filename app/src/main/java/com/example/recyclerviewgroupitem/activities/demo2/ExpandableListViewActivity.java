@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem;
+package com.example.recyclerviewgroupitem.activities.demo2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,10 +7,8 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 
+import com.example.recyclerviewgroupitem.R;
 import com.example.recyclerviewgroupitem.adapters.ExpandableListAdapter;
-import com.example.recyclerviewgroupitem.models.EventItem;
-import com.example.recyclerviewgroupitem.models.HeaderItem;
-import com.example.recyclerviewgroupitem.models.ListItem;
 import com.example.recyclerviewgroupitem.models.MyModel;
 
 import java.text.ParseException;
@@ -18,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 

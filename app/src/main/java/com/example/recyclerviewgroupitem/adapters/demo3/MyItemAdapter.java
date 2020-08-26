@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem.adapters.activity2;
+package com.example.recyclerviewgroupitem.adapters.demo3;
 
 import android.view.LayoutInflater;
 import android.view.View;

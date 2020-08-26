@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem.adapters.activity2;
+package com.example.recyclerviewgroupitem.adapters.demo3;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerviewgroupitem.R;

@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem;
+package com.example.recyclerviewgroupitem.activities.demo3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.recyclerviewgroupitem.adapters.activity2.HeaderAdapter;
-import com.example.recyclerviewgroupitem.adapters.activity2.MyItemAdapter;
+import com.example.recyclerviewgroupitem.R;
+import com.example.recyclerviewgroupitem.adapters.demo3.HeaderAdapter;
+import com.example.recyclerviewgroupitem.adapters.demo3.MyItemAdapter;
 import com.example.recyclerviewgroupitem.models.MyModel;
 
 import java.util.ArrayList;

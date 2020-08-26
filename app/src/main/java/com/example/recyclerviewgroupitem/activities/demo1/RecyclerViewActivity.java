@@ -1,4 +1,4 @@
-package com.example.recyclerviewgroupitem;
+package com.example.recyclerviewgroupitem.activities.demo1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.example.recyclerviewgroupitem.R;
 import com.example.recyclerviewgroupitem.adapters.MyAdapter;
 import com.example.recyclerviewgroupitem.models.EventItem;
 import com.example.recyclerviewgroupitem.models.HeaderItem;

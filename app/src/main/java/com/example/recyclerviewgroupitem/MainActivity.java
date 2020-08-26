@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.recyclerviewgroupitem.activities.demo3.ExpandableListViewActivity2;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
