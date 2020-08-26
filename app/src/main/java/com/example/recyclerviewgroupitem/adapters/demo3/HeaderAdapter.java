@@ -37,7 +37,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
         return new MyViewHolder(view);
     }
 
-    private int drawerOption = 0;
+    private ArrayList<Integer> itemPosition = new ArrayList<>();
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
@@ -45,14 +45,14 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.MyViewHold
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (drawerOption == 0) {
-                    drawerOption = 1;
-                    onClickRotation(holder.imageButton);
-                    mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
-                } else if (drawerOption == 1) {
-                    drawerOption = 0;
+                if (itemPosition.size() > 0 && itemPosition.get(position) == position){
                     onClickRotation(holder.imageButton);
                     mListener.onItemRemove(mHeaders.get(position), holder.recyclerView);
+                    itemPosition.remove(position);
+                } else {
+                    onClickRotation(holder.imageButton);
+                    mListener.onItemShow(mHeaders.get(position), holder.recyclerView);
+                    itemPosition.add(position);
                 }
             }
         });
