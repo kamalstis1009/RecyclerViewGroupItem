@@ -7,3 +7,6 @@ Add two sections in recyclerview android
 #ExpandableListView
 ![Screenshot_1598349183](https://user-images.githubusercontent.com/57432481/91160434-36d73d00-e6eb-11ea-891d-5315e74af14d.png)
 
+#RecyclerView inside RecyclerView
+![Screenshot_1598413076](https://user-images.githubusercontent.com/57432481/91252713-eb22a300-e77f-11ea-9743-066a6f53b9ee.png)
+
