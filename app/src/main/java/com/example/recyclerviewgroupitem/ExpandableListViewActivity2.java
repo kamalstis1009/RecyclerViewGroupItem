@@ -48,6 +48,11 @@ public class ExpandableListViewActivity2 extends AppCompatActivity implements He
         adapter.notifyDataSetChanged();
     }
 
+    public void clear(ArrayList<MyModel> arrayList, MyItemAdapter adapter) {
+        arrayList.clear();
+        adapter.notifyDataSetChanged();
+    }
+
 
     @NonNull
     private ArrayList<MyModel> loadEvents() {
